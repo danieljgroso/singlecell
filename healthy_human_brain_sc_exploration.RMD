@@ -1,0 +1,31 @@
+---
+title: "human_scRNA"
+author: "DGroso"
+date: "11/12/2021"
+output: html_document
+---
+```{r}
+library(Seurat)
+```
+## Healthy Male
+
+```{r}
+human_scrna_healthy_m <- readRDS("/blue/ewang/dgroso/00-DATA/alzheimers_seurat_obj_scrna/human_healthy/AD00201.rds")
+```
+
+```{r}
+DimPlot(human_scrna_healthy_m, reduction = "umap")
+```
+
+```{r}
+#upregulated clusters
+FeaturePlot(human_scrna_healthy_m, features = c('MBNL1', 'MBNL2', 'CELF1', 'SESN3', 'WDR1', "ITGA6","CFH", "CFI", "CFB", "B3GAT2","DAG1", "BTG2", "PSMB9"))
+```
+
+```{r}
+# downregulated transcripts
+FeaturePlot(human_scrna_healthy_m, features = c('SLC36A1', 'PHACTR3', 'DLGAP1', 'DLGAP4', 'LRRFIP2', "CAMKK2", 'MTCL1', "VGF", "ADCY1", "ABLIM2", "SIPA1L1"))
+
+```
+
+
