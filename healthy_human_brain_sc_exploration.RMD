@@ -1,31 +1,35 @@
 ---
-title: "human_scRNA"
-author: "DGroso"
+title: "Single-cell exploration of a healthy human entorhinal cortex with Seurat"
+author: "Daniel Groso"
 date: "11/12/2021"
 output: html_document
 ---
 ```{r}
 library(Seurat)
 ```
-## Healthy Male
-
 ```{r}
+# Load in Data / Healthy Human Male: Entorhinal Cortex (ID: AD00201)
 human_scrna_healthy_m <- readRDS("/blue/ewang/dgroso/00-DATA/alzheimers_seurat_obj_scrna/human_healthy/AD00201.rds")
 ```
 
 ```{r}
+# visualize PCs with a heatmap
+DimHeatmap(human_scrna_healthy_m, dims = 1:4, cells = 500, balanced = TRUE)
+```
+
+```{r}
+# view low-dimensional cell-type clustering 
 DimPlot(human_scrna_healthy_m, reduction = "umap")
 ```
 
 ```{r}
-#upregulated clusters
+# visualize upregulated transcripts
 FeaturePlot(human_scrna_healthy_m, features = c('MBNL1', 'MBNL2', 'CELF1', 'SESN3', 'WDR1', "ITGA6","CFH", "CFI", "CFB", "B3GAT2","DAG1", "BTG2", "PSMB9"))
 ```
 
 ```{r}
-# downregulated transcripts
+# visualize downregulated transcripts
 FeaturePlot(human_scrna_healthy_m, features = c('SLC36A1', 'PHACTR3', 'DLGAP1', 'DLGAP4', 'LRRFIP2', "CAMKK2", 'MTCL1', "VGF", "ADCY1", "ABLIM2", "SIPA1L1"))
-
 ```
 
 
