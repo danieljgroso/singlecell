@@ -1,0 +1,29 @@
+---
+title: "Single-cell data exploration (human AD)"
+author: "DGroso"
+date: "11/10/2021"
+output: html_document
+---
+
+```{r}
+library(Seurat)
+library(ggplot2)
+```
+
+```{r}
+human_scrna_ad <- readRDS("/blue/ewang/dgroso/00-DATA/alzheimers_seurat_obj_scrna/human/AD00203.rds")
+```
+
+```{r}
+DimHeatmap(human_scrna_ad, dims = 1:4, cells = 500, balanced = TRUE)
+```
+
+```{r}
+DimPlot(human_scrna_ad, reduction = "umap")
+```
+
+```{r}
+FeaturePlot(human_scrna_ad, features = c( 'MBNL2', "TBC1D24", 'MCF2L', 'MYO5B'))
+```
+
+
