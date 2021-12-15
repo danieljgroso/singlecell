@@ -8,7 +8,7 @@ output: html_document
 library(Seurat)
 ```
 ```{r}
-# Load in Data / Healthy Human Male: Entorhinal Cortex (ID: AD00201)
+# Load in Data / Healthy Human Male: Entorhinal Cortex (ID: AD00201) from Jiang et. al
 human_scrna_healthy_m <- readRDS("/blue/ewang/dgroso/00-DATA/alzheimers_seurat_obj_scrna/human_healthy/AD00201.rds")
 ```
 
